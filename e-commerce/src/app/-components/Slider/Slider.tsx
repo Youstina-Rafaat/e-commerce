@@ -14,9 +14,27 @@ import "swiper/css/thumbs";
 import { SliderProps } from "@/api/types/slider.type";
 
 const content = [
-  { title: "Fresh Products Delivered to your Door", text: "Get 20% off your first order", main: "Shop Now", second: "View Deals", color: "text-green-600" },
-  { title: "Premium Quality Guaranteed", text: "Fresh from farm to your table", main: "Shop Now", second: "Learn More", color: "text-blue-600" },
-  { title: "Fast & Free Delivery", text: "Same day delivery available", main: "Order Now", second: "Delivery Info", color: "text-violet-600" },
+  {
+    title: "Fresh Products Delivered to your Door",
+    text: "Get 20% off your first order",
+    main: "Shop Now",
+    second: "View Deals",
+    color: "text-green-600",
+  },
+  {
+    title: "Premium Quality Guaranteed",
+    text: "Fresh from farm to your table",
+    main: "Shop Now",
+    second: "Learn More",
+    color: "text-blue-600",
+  },
+  {
+    title: "Fast & Free Delivery",
+    text: "Same day delivery available",
+    main: "Order Now",
+    second: "Delivery Info",
+    color: "text-violet-600",
+  },
 ];
 
 export default function Slider({
@@ -39,7 +57,6 @@ export default function Slider({
             swiper:
               thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
           }}
-          className={`${heightClass} w-full rounded-xl bg-gray-50`}
         >
           {listOfImages.map((src, index) => (
             <SwiperSlide key={index}>
@@ -73,7 +90,7 @@ export default function Slider({
   return (
     <Swiper
       modules={[Navigation, Pagination]}
-      className={`${heightClass} ${showContent ? "w-full" : "w-423"}`}
+      className={`${heightClass} slider-arrows w-full`}
       spaceBetween={spaceBetween}
       slidesPerView={slidePerview}
       navigation
@@ -95,15 +112,23 @@ export default function Slider({
               <img src={src} className="h-full w-full object-cover" alt="" />
 
               {showContent && (
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/95 to-green-500/50">
-                  <div className="mx-auto flex h-full container flex-col justify-center px-12 text-white md:px-20">
-                    <h2 className="max-w-lg text-3xl font-bold md:text-4xl">{slide.title}</h2>
+                <div className="absolute inset-0 bg-linear-to-r from-green-500/95 to-green-500/50">
+                  <div className="container mx-auto flex h-full flex-col justify-center px-20 text-white md:px-24">
+                    <h2 className="max-w-lg text-3xl font-bold md:text-4xl">
+                      {slide.title}
+                    </h2>
                     <p className="mt-4 text-lg">{slide.text}</p>
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <Link href="/products" className={`rounded-lg bg-white px-7 py-3 font-semibold ${slide.color}`}>
+                      <Link
+                        href="/products"
+                        className={`rounded-lg bg-white px-7 py-3 font-semibold ${slide.color}`}
+                      >
                         {slide.main}
                       </Link>
-                      <Link href="/products" className="rounded-lg border-2 border-white/60 px-7 py-3 font-semibold hover:bg-white/10">
+                      <Link
+                        href="/products"
+                        className="rounded-lg border-2 border-white/60 px-7 py-3 font-semibold hover:bg-white/10"
+                      >
                         {slide.second}
                       </Link>
                     </div>
