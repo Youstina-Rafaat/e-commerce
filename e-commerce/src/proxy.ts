@@ -3,7 +3,7 @@ import {getToken} from "next-auth/jwt"
 
 
 export async function proxy(request :NextRequest){
-    const protectedRoutes=["/cart","/wishlist","/checkout","/allorders","profile"]
+    const protectedRoutes=["/cart","/wishlist","/checkout","/allorders","/profile"]
     const authRoutes=["/login","/register"]
 
 const myPath=request.nextUrl.pathname
